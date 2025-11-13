@@ -1,0 +1,174 @@
+:root{
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --accent: #6C63FF;
+  --glass: rgba(255,255,255,0.08);
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(16,24,40,0.12);
+  --glass-border: rgba(255,255,255,0.12);
+}
+
+/* Page theme variables (each page body uses a class) */
+body.home{ --bg1: linear-gradient(135deg,#6C63FF 0%, #3AA0FF 100%); --card: rgba(255,255,255,0.06); --link: #fff;}
+body.features{ --bg1: linear-gradient(135deg,#2BD0A3 0%, #0FB4A8 100%); --card: rgba(255,255,255,0.06); --link:#062b2b;}
+body.profile{ --bg1: linear-gradient(135deg,#FFD166 0%, #FF9A3C 100%); --card:rgba(0,0,0,0.04); --link:#111;}
+body.register{ --bg1: linear-gradient(135deg,#9B5DE5 0%, #F15BB5 100%); --card: rgba(255,255,255,0.06); --link:#fff;}
+body.resources{ --bg1: linear-gradient(135deg,#00C2FF 0%, #0077FF 100%); --card: rgba(255,255,255,0.06); --link:#fff;}
+body.join{ --bg1: linear-gradient(135deg,#FF7BA9 0%, #FFB86B 100%); --card: rgba(255,255,255,0.06); --link:#111;}
+body.yourcourses{ --bg1: linear-gradient(135deg,#8EC5FC 0%, #E0C3FC 100%); --card: rgba(255,255,255,0.06); --link:#062b2b;}
+body.about{ --bg1: linear-gradient(135deg,#C6FFDD 0%, #FBD786 100%); --card: rgba(0,0,0,0.03); --link:#111;}
+body.youtube{ --bg1: linear-gradient(135deg,#FF6B6B 0%, #FFD93D 100%); --card: rgba(255,255,255,0.06); --link:#111;}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+body{
+  background: var(--bg1);
+  min-height:100%;
+  color:var(--link);
+  display:flex;
+  flex-direction:column;
+}
+
+/* container */
+.container{ width: min(1200px, 94%); margin: 28px auto; }
+
+/* Header / Navbar */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:14px 18px;border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent);
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.15);
+  display:grid;place-items:center;font-weight:700;color:var(--link);font-size:18px;
+}
+.site-name{font-weight:700;letter-spacing:0.4px}
+.nav{
+  display:flex;gap:12px;align-items:center;
+}
+.nav a{
+  color:var(--link);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;
+  transition:all .25s;
+}
+.nav a:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,0.12);}
+
+/* CTA button style */
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700;background:rgba(255,255,255,0.12);
+  color:var(--link);cursor:pointer;border:0;backdrop-filter: blur(6px);
+  transition:transform .18s ease, box-shadow .18s;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(10,10,10,0.15);}
+
+/* Hero */
+.hero{
+  display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px;margin-top:18px;
+}
+.hero-card{
+  padding:28px;border-radius:22px;background:var(--card);box-shadow:var(--shadow);backdrop-filter: blur(6px);
+  animation:slideUp .75s ease both;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{opacity:0.9;line-height:1.6}
+
+/* small visual */
+.hero-side{ height:320px;border-radius:18px;background:linear-gradient(160deg, rgba(255,255,255,0.06), transparent);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:18px;position:relative;overflow:hidden}
+.hero-side .floating{
+  width:140px;height:140px;border-radius:16px;background:rgba(255,255,255,0.08);display:grid;place-items:center;font-weight:700;
+  transform:rotate(-10deg);box-shadow:0 14px 40px rgba(0,0,0,0.12);animation: float 4s ease-in-out infinite;
+}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+
+/* cards grid used across pages */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+/* Feature cards (glass) */
+.card{
+  padding:18px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+  border:1px solid var(--glass-border);box-shadow:var(--shadow);transition:transform .28s ease,box-shadow .28s;
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(16,24,40,0.16)}
+
+/* flip card style for Features page */
+.flip{
+  perspective:1200px;
+}
+.flip-inner{
+  width:100%;height:220px;border-radius:14px;position:relative;transition:transform .8s;transform-style:preserve-3d;
+}
+.flip:hover .flip-inner{transform:rotateY(180deg)}
+.flip-front, .flip-back{
+  position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;padding:18px;
+}
+.flip-back{transform:rotateY(180deg);background:rgba(255,255,255,0.06)}
+.flip-front{background:linear-gradient(120deg, rgba(0,0,0,0.06), transparent)}
+
+/* form styles */
+.form{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px}
+.form label{display:block;font-size:13px;margin:8px 0 6px}
+.input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--link)}
+.input:focus{outline:none;box-shadow:0 8px 30px rgba(16,24,40,0.12)}
+
+.small-muted{font-size:13px;opacity:0.82}
+
+/* course list */
+.course{
+  display:flex;gap:14px;align-items:center;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);
+}
+.course .thumb{width:84px;height:64px;border-radius:8px;background:linear-gradient(90deg, rgba(0,0,0,0.06), transparent);display:grid;place-items:center}
+
+/* responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr; padding:28px}
+  .nav{display:none}
+  .header{flex-wrap:wrap}
+}
+
+/* Footer */
+.footer{
+  margin-top:auto;padding:28px 18px;background:linear-gradient(180deg, rgba(0,0,0,0.06), transparent);
+  border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:center;border-radius:12px;margin:28px;
+}
+.footer small{opacity:0.8;color:var(--link)}
+
+/* page specific smaller tweaks */
+.features-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.profile-avatar{width:110px;height:110px;border-radius:999px;background:linear-gradient(120deg, rgba(255,255,255,0.12),transparent);display:grid;place-items:center;font-weight:700}
+.resources-cta{display:flex;gap:16px;align-items:center}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.youtube-embed{border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+
+/* subtle icon bounce */
+.icon-bounce{display:inline-block;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* small helpers */
+.center{text-align:center}
+.hidden{display:none}
+.pulse{animation:pulse .9s infinite;}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(0.98)}100%{transform:scale(1)}}
+
+/* link-like cards */
+.link-card{cursor:pointer;transition:transform .2s, box-shadow .2s}
+.link-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,0.12)}
+
+/* --- Logo image inside the "EW" box --- */
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  display: grid;
+  place-items: center;
+  overflow: hidden; /* ensures image corners are rounded */
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the box neatly */
+}

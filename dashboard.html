@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — Progress Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="features">
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">EW</div>
+        <div>
+          <div class="site-name">EDUWEB</div>
+          <small class="small-muted">Progress Dashboard</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="resources.html">Resources</a>
+        <a href="join.html">Join Courses</a>
+        <a href="aboutus.html">About us</a>
+      </nav>
+    </header>
+
+    <main style="margin-top:24px">
+      <div class="hero-card">
+        <h2>Your Progress Overview</h2>
+        <p class="small-muted">Track your learning goals and achievements.</p>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <p>📘 Courses Completed: <strong id="courses">3</strong></p>
+        <p>⭐ Average Score: <strong id="score">88%</strong></p>
+        <p>🔥 Streak Days: <strong id="streak">12</strong></p>
+        <button class="btn" onclick="updateProgress()">Update Progress</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 EduWeb</small>
+      <div><a href="features.html" class="small-muted">Back to Features</a></div>
+    </footer>
+  </div>
+
+  <script>
+    function updateProgress(){
+      const c = document.getElementById('courses');
+      const s = document.getElementById('score');
+      const st = document.getElementById('streak');
+      c.textContent = parseInt(c.textContent) + 1;
+      s.textContent = Math.min(100, parseInt(s.textContent) + 2) + '%';
+      st.textContent = parseInt(st.textContent) + 1;
+    }
+  </script>
+</body>
+</html>

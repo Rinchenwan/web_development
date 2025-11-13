@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — Features</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.features {
+      background: linear-gradient(135deg, #5e0b8b, #ff3cac);
+      color: #fff;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1));
+      border-radius: 20px;
+      padding: 36px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+      margin-bottom: 32px;
+    }
+    .hero-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .features-grid .card {
+      background: linear-gradient(135deg, #8b00ff, #ff3cac);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .features-grid .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, #ff3cac, #8b00ff);
+    }
+
+    .features-grid .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .features-grid .card p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .features-grid .card .btn {
+      background: linear-gradient(135deg, #ff3cac, #8b00ff);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .features-grid .card .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+      background: linear-gradient(135deg, #8b00ff, #ff3cac);
+    }
+
+    footer.footer {
+      margin-top: auto;
+      padding: 28px 18px;
+      text-align: center;
+      background: rgba(0,0,0,0.2);
+      border-radius: 12px;
+    }
+
+    footer.footer a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 720px) {
+      .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      }
+    }
+  </style>
+</head>
+
+<body class="features">
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">EW</div>
+        <div>
+          <div class="site-name">EDUWEB</div>
+          <small class="small-muted">Features</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html" class="active">Features</a>
+        <a href="resources.html">Resources</a>
+        <a href="join.html">Join Courses</a>
+        <a href="aboutus.html">About us</a>
+      </nav>
+    </header>
+
+    <main style="margin-top:20px">
+      <div class="hero-card">
+        <h2>Powerful Features for Learning</h2>
+        <p class="small-muted">Each tool is designed to help learners practice, assess, and grow their skills.</p>
+      </div>
+
+      <section class="grid features-grid">
+        <div class="card" onclick="location.href='multi-quiz.html'">
+          <h3>Interactive Quizzes</h3>
+          <p>Auto-grading, hints, and instant feedback.</p>
+          <button class="btn">Start Quiz</button>
+        </div>
+
+        <div class="card" onclick="location.href='coursebuilder.html'">
+          <h3>Course Builder</h3>
+          <p>Drag & drop activities and resources easily.</p>
+          <button class="btn">Build Course</button>
+        </div>
+
+        <div class="card" onclick="location.href='dashboard.html'">
+          <h3>Progress Dashboard</h3>
+          <p>Track learners’ growth with charts and reports.</p>
+          <button class="btn">View Dashboard</button>
+        </div>
+
+        <div class="card" onclick="location.href='integrations.html'">
+          <h3>Integrations</h3>
+          <p>YouTube, Google Drive, and more — all in one place.</p>
+          <button class="btn">Explore</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 EduWeb</small>
+      <div>
+        <a href="index.html">Home</a> · 
+        <a href="register.html">Register</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

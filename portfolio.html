@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile">
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">EW</div><div><div class="site-name">EDUWEB</div><small class="small-muted">My Profile</small></div></div>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="yourcourses.html">My Courses</a><a href="resources.html">Resources</a>
+      </nav>
+    </header>
+
+    <main style="margin-top:20px">
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <aside style="min-width:260px">
+          <div class="card center">
+            <div class="profile-avatar">TS</div>
+            <h3 style="margin:12px 0 6px">Tashi Yangzom</h3>
+            <p class="small-muted">Student • Grade 9 • Thimphu</p>
+            <div style="margin-top:12px"><button class="btn" onclick="alert('Edit profile soon')">Edit Profile</button></div>
+          </div>
+        </aside>
+
+        <section style="flex:1">
+          <div class="card form">
+            <h3>Account Settings</h3>
+            <label>Full name</label>
+            <input class="input" value="Tashi Yangzom" />
+            <label>Email</label>
+            <input class="input" value="tashi@example.com" />
+            <label>Bio</label>
+            <input class="input" value="Future teacher, loves coding & ICT." />
+            <div style="margin-top:12px;display:flex;gap:10px">
+              <button class="btn" onclick="saveProfile()">Save</button>
+              <button class="btn" onclick="resetProfile()">Reset</button>
+            </div>
+            <p class="small-muted" style="margin-top:12px">Tip: Use your profile to personalize recommendations.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 EduWeb</small>
+      <div><a href="index.html" class="small-muted">Home</a></div>
+    </footer>
+  </div>
+
+<script>
+function saveProfile(){
+  alert('Your changes were saved (demo).');
+}
+function resetProfile(){
+  if(confirm('Reset fields?')) location.reload();
+}
+</script>
+</body>
+</html>

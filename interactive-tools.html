@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interactive Tools — EduWeb</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body.interactive-tools {
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg, #5e2a84 0%, #e056fd 100%);
+  color:#fff;
+  margin:0; padding:0;
+}
+.header, .footer {
+  background: rgba(0,0,0,0.15);
+  padding:20px 40px;
+  border-radius:12px;
+  color:#fff;
+}
+.container { margin:20px auto; width:min(1200px,94%); }
+h1 { margin-bottom:16px; font-size:2em; }
+.grid-3 {
+  display:flex; flex-wrap:wrap; gap:20px;
+  justify-content:center;
+}
+.card {
+  flex:1; min-width:260px; max-width:320px;
+  padding:20px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.15);
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  color:#fff; cursor:pointer;
+  text-align:center; text-decoration:none;
+  transition:0.3s;
+}
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.25);
+}
+.card img {
+  width:100%; height:140px;
+  object-fit:cover; border-radius:12px; margin-bottom:12px;
+}
+.btn-link {
+  display:inline-block;
+  margin-top:25px;
+  background:#fff;
+  color:#a050c0;
+  padding:10px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+.btn-link:hover { background:#f3e8ff; transform:translateY(-3px); }
+.footer a { color:#fff; text-decoration:underline; }
+.footer a:hover { color:#ffe4f9; }
+</style>
+</head>
+
+<body class="interactive-tools">
+<div class="container">
+<header class="header">
+  <div class="brand">
+    <div class="logo">EW</div>
+    <div>
+      <div class="site-name">EDUWEB</div>
+      <small>Interactive Tools</small>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html" style="color:#fff;text-decoration:none;margin-right:15px;">Home</a>
+    <a href="resources.html" style="color:#fff;text-decoration:none;">Resources</a>
+  </nav>
+</header>
+
+<h1>Interactive Tools</h1>
+<p class="small-muted">Click any tool below to open and start practicing instantly.</p>
+
+<section class="grid-3">
+
+  <!-- ✅ Working calculator link -->
+  <a class="card" href="https://www.desmos.com/scientific" target="_blank">
+    <img src="images\6089124802724564052.jpg" alt="Calculator">
+    <h4>Calculator</h4>
+    <p>Perform quick and advanced calculations online.</p>
+  </a>
+
+  <!-- ✅ Working simulation tool link -->
+  <a class="card" href="https://phet.colorado.edu/en/simulations" target="_blank">
+    <img src="images\6089124802724564051.jpg" alt="Simulation">
+    <h4>Simulation</h4>
+    <p>Explore interactive science and math simulations.</p>
+  </a>
+
+  <!-- ✅ Working converter link -->
+  <a class="card" href="https://www.unitconverters.net/" target="_blank">
+    <img src="images\6089124802724564066.jpg" alt="Converter">
+    <h4>Unit Converter</h4>
+    <p>Convert between different units easily and quickly.</p>
+  </a>
+</section>
+
+<div style="text-align:center;">
+  <a href="interactive-learning.html" class="btn-link">Go to Interactive Learning ➜</a>
+</div>
+
+<footer class="footer">
+  <small>© 2025 EduWeb</small> |
+  <a href="resources.html">Back to Resources</a>
+</footer>
+</div>
+</body>
+</html>

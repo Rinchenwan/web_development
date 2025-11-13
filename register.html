@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — Register</title>
+  <style>
+    :root {
+      --purple-dark: #5e2a84;
+      --pink-accent: #e056fd;
+      --gradient-bg: linear-gradient(135deg, #5e2a84, #a4508b, #e056fd);
+      --radius: 10px;
+      --shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--gradient-bg);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      width: 90%;
+      max-width: 950px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .left {
+      background: linear-gradient(135deg, var(--purple-dark), var(--pink-accent));
+      color: white;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left h2 {
+      font-size: 2em;
+      margin-bottom: 14px;
+    }
+
+    .left p {
+      font-size: 1em;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .right {
+      padding: 40px;
+      background-color: #fff;
+      color: #222;
+    }
+
+    .form h3 {
+      font-size: 1.6em;
+      color: var(--purple-dark);
+      margin-bottom: 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .form label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 500;
+      font-size: 0.95em;
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      margin-top: 5px;
+      font-size: 0.95em;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    .input:focus {
+      border-color: var(--pink-accent);
+      outline: none;
+      box-shadow: 0 0 6px rgba(224, 86, 253, 0.3);
+    }
+
+    .btn {
+      background: var(--purple-dark);
+      color: white;
+      padding: 10px 14px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      width: 100%;
+      font-size: 1em;
+      font-weight: 500;
+      margin-top: 20px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn:hover {
+      background: var(--pink-accent);
+      transform: scale(1.02);
+    }
+
+    .small-muted {
+      color: #555;
+      font-size: 0.9em;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .small-muted a {
+      color: var(--pink-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .small-muted a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .left {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>Welcome to EduWeb 💜</h2>
+      <p>Join thousands of learners and explore courses tailored for your growth and success.</p>
+      <ul style="margin-top:20px;line-height:1.8;font-size:0.95em;">
+        <li>🎓 Certified Courses</li>
+        <li>📊 Progress Tracking</li>
+        <li>💬 Interactive Community</li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <div class="form">
+        <h3>Create Your Account</h3>
+
+        <label>First Name</label>
+        <input class="input" id="firstName" placeholder="Enter your first name" />
+
+        <label>Last Name</label>
+        <input class="input" id="lastName" placeholder="Enter your last name" />
+
+        <!-- changed to text type so browser won't block non-email formats -->
+        <label>Email</label>
+        <input type="text" class="input" id="email" placeholder="Enter your email (any text allowed)" />
+
+        <label>Password</label>
+        <input type="password" class="input" id="password" placeholder="Enter password" />
+
+        <label>Confirm Password</label>
+        <input type="password" class="input" id="confirmPassword" placeholder="Re-enter password" />
+
+        <button class="btn" onclick="register()">Register</button>
+
+        <p class="small-muted">
+          Already have an account? <a href="profile.html">Sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function register() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim(); // no format validation
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+      if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        alert("⚠️ Please fill out all fields.");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("🔒 Password must be at least 6 characters long.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("❌ Passwords do not match!");
+        return;
+      }
+
+      // save minimal user info (email may be any string)
+      const user = { firstName, lastName, email };
+      localStorage.setItem("eduwebUser", JSON.stringify(user));
+
+      // redirect to welcome page
+      window.location.href = "welcome.html";
+    }
+  </script>
+</body>
+</html> 

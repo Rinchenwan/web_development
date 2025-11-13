@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — About us</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.about {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header, .footer {
+      background: rgba(0, 0, 0, 0.15);
+      color: #fff;
+      padding: 20px 40px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .container {
+      margin: 20px auto;
+      width: min(1200px, 94%);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+      color: #fff;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .hero-card {
+      text-align: center;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Team section */
+    .team-grid {
+      display: flex;
+      gap: 20px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .team-member {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      text-align: center;
+      padding: 16px;
+      width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .team-member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+
+    .team-member strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    .small-muted {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body class="about">
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">EW</div>
+        <div>
+          <div class="site-name">EDUWEB</div>
+          <small class="small-muted">About Us</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+    </header>
+
+    <main style="margin-top:20px">
+      <div class="card hero-card">
+        <h2>About EduWeb</h2>
+        <p class="small-muted">We are a passionate group of learners, educators, and developers dedicated to making education interactive, accessible, and inspiring for everyone. At EduWeb, we believe learning should be more than just reading—it should be an experience. Our platform blends technology with creativity to help students explore, teachers connect, and communities grow together. Whether you’re a curious learner or a passionate teacher, EduWeb empowers you to learn, share, and succeed—anytime, anywhere.</p>
+      </div>
+
+      <section style="margin-top:18px" class="grid">
+        <div class="card">
+          <h4>Our Mission</h4>
+          <p class="small-muted">To bridge learning gaps through engaging and easy-to-use digital tools.</p>
+        </div>
+
+        <div class="card">
+          <h4>Contact</h4>
+          <p class="small-muted">
+            Email: <a href="mailto:support@eduweb.example" style="color:#fff;text-decoration:underline;">support@eduweb.example</a><br>
+            Phone: +975 12345678
+          </p>
+        </div>
+
+        <div class="card">
+          <h4>Our Team</h4>
+          <div class="team-grid">
+
+            <div class="team-member">
+              <img src="images\6179351091968331634.jpg" alt="Tashi Lhamo">
+              <strong>Tashi Lhamo</strong>
+              <div class="small-muted">Founder</div>
+            </div>
+
+            <div class="team-member">
+              <img src="images\6179446865444063626.jpg" alt="Tandin penjor">
+              <strong>Tandin Penjor</strong>
+              <div class="small-muted">Product Manager</div>
+            </div>
+
+            <div class="team-member">
+              <img src="images\6179351091968331630.jpg" alt="Tshering Deki">
+              <strong>Tshering Deki</strong>
+              <div class="small-muted">Developer</div>
+            </div>
+
+            <div class="team-member">
+              <img src="images\6181739003590592934.jpg" alt="Tenzin choden">
+              <strong>Tenzin Choden</strong>
+              <div class="small-muted">UI/UX Designer</div>
+            </div>
+
+            <div class="team-member">
+              <img src="images\6179351091968331633.jpg" alt="Tandin Bidha">
+              <strong>Tandin Bidha</strong>
+              <div class="small-muted">Backend Engineer</div>
+            </div>
+
+            <div class="team-member">
+              <img src="images\6179351091968331635.jpg" alt="Trashi yangzom">
+              <strong>Trashi yangzom</strong>
+              <div class="small-muted">Content Creator</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 EduWeb — Built with ❤️ by our team</small>
+      <div><a href="index.html" class="small-muted">Home</a></div>
+    </footer>
+  </div>
+</body>
+</html>

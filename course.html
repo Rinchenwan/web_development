@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course Landing Page</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+        h1 {
+            color: #fff; 
+            font-size: 2.2rem;
+            text-align: center;
+        }
+        #course-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #course-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        #course-info {
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 25px;
+        }
+        #course-info h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        #course-resources a {
+            color: #ffeb3b; /* Bright, contrasting color for links */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        #course-resources a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        #course-resources li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Course! 🎉</h1>
+        <h2 id="course-title"></h2>
+        <p id="course-desc"></p>
+
+        <div id="course-info">
+            <h3>Start Learning Now!</h3>
+            <ul id="course-resources">
+                <li style="text-align:center;">Loading resources...</li>
+            </ul>
+        </div>
+        
+        <p style="text-align:center;">
+            <a href="index.html" style="color:#fff; text-decoration:underline;">← Go back to Course Catalog</a>
+        </p>
+    </div>
+<script>
+        // --- Course Data (Must match the data in your main page) ---
+        const courses = [
+            {id:1,title:'Business Math',sub:'stem',desc:'Math for business and finance'},
+            {id:2,title:'Biology',sub:'stem',desc:'Cell biology, genetics, and ecology'},
+            {id:3,title:'Chemistry',sub:'stem',desc:'Organic and inorganic chemistry'},
+            {id:4,title:'Physics',sub:'stem',desc:'Mechanics, waves, and thermodynamics'},
+            {id:5,title:'IT Basics',sub:'stem',desc:'Introduction to computers and IT fundamentals'},
+            {id:6,title:'English',sub:'arts',desc:'Grammar, literature, and writing skills'},
+            {id:7,title:'History',sub:'arts',desc:'World and Bhutanese history'},
+            {id:8,title:'Geography',sub:'arts',desc:'Physical and human geography'},
+            {id:9,title:'Dzongkhag Studies',sub:'arts',desc:'Culture and local governance of districts'},
+        ];
+        
+        // --- Specific Resource Links for ALL Courses ---
+        const courseResources = {
+            1: [ // Business Math
+                {name: 'Khan Academy: Financial Math', url: 'https://www.khanacademy.org/math/financial-math'},
+                {name: 'Basic Accounting Principles (Investopedia)', url: 'https://www.investopedia.com/terms/b/basic-accounting-equation.asp'},
+                {name: 'Spreadsheet Tutorial for Business', url: 'https://eduweb.com/business-math-excel'},
+            ],
+            2: [ // Biology
+                {name: 'Biology Basics (Bozeman Science)', url: 'https://www.youtube.com/c/bozemanscience/playlists?view=50&sort=dd&shelf_id=1'},
+                {name: 'Cell Structure interactive model', url: 'https://www.cell.com/cell-press-resources/cell-biology-learning-center'},
+                {name: 'Official Textbook Chapter 1', url: 'https://eduweb.com/biology-ch1'},
+            ],
+            3: [ // Chemistry
+                {name: 'Crash Course Chemistry Playlist', url: 'https://www.youtube.com/playlist?list=PL8dPuuaLjXtPHzzEMv6T5ccsT8gU1r9kT'},
+                {name: 'Interactive Periodic Table', url: 'https://www.ptable.com/'},
+                {name: 'Introduction to Organic Chemistry', url: 'https://www.masterorganicchemistry.com/beginner/'},
+            ],
+            4: [ // Physics
+                {name: 'Khan Academy: High School Physics', url: 'https://www.khanacademy.org/science/physics'},
+                {name: 'MIT OpenCourseWare: Mechanics', url: 'https://ocw.mit.edu/courses/8-01sc-physics-i-classical-mechanics-fall-2010/'},
+                {name: 'Waves and Thermodynamics Simulations', url: 'https://phet.colorado.edu/en/simulations/filter?subjects=physics&sort=alpha&license=cc-by'},
+            ],
+            5: [ // IT Basics
+                {name: 'CS50 Introduction to Computer Science (edX)', url: 'https://www.edx.org/course/cs50s-introduction-to-computer-science'},
+                {name: 'Tech Skills for Beginners (GCF Global)', url: 'https://www.gcfglobal.org/topics/computers/'},
+                {name: 'Networking Basics Article', url: 'https://eduweb.com/it-networking-basics'},
+            ],
+            6: [ // English
+                {name: 'Grammar and Punctuation Guide', url: 'https://owl.purdue.edu/owl/general_writing/grammar/grammar_and_punctuation/index.html'},
+                {name: 'Classic Literature Readings', url: 'https://www.gutenberg.org/'},
+                {name: 'Essay Writing Techniques', url: 'https://eduweb.com/english-essay-guide'},
+            ],
+            7: [ // History
+                {name: 'Crash Course World History Playlist', url: 'https://www.youtube.com/playlist?list=PLBDA2E52FB1D8177F'},
+                {name: 'Historical Maps and Timelines', url: 'https://www.timemaps.com/'},
+                {name: 'Bhutanese History Overview', url: 'https://eduweb.com/bhutan-history'},
+            ],
+            8: [ // Geography
+                {name: 'National Geographic Education Resources', url: 'https://education.nationalgeographic.org/resource/geography-basics/'},
+{name: 'Interactive World Atlas', url: 'https://www.worldatlas.com/'},
+                {name: 'Physical and Human Geography Concepts', url: 'https://eduweb.com/geography-concepts'},
+            ],
+            9: [ // Dzongkhag Studies
+                {name: 'Bhutanese Culture & Governance Guide', url: 'https://eduweb.com/dzongkhag-governance'},
+                {name: 'Local Governance Structures Explained', url: 'https://eduweb.com/local-government-structure'},
+                {name: 'Dzongkhag Map and Profiles', url: 'https://eduweb.com/dzongkhag-map'},
+            ],
+            default: [
+                {name: 'Official Course Guide (PDF)', url: '#'},
+                {name: 'Discussion Forum', url: '#'},
+                {name: 'Contact Instructor', url: '#'}
+            ]
+        };
+
+        // 🛑 FIX: Using URLSearchParams for robust ID retrieval
+        function getUrlParameter(name) {
+            // Get the parameter value (e.g., "1")
+            const value = new URLSearchParams(window.location.search).get(name);
+            
+            // Return the value converted to an integer (number), or null if not found
+            return value ? parseInt(value) : null;
+        };
+
+        const courseId = getUrlParameter('id');
+        const courseTitleElement = document.getElementById('course-title');
+        const courseDescElement = document.getElementById('course-desc');
+        const resourcesList = document.getElementById('course-resources');
+
+        if (courseId) {
+            const joinedCourse = courses.find(c => c.id === courseId);
+            
+            if (joinedCourse) {
+                // 1. Display Course Details
+                courseTitleElement.textContent = joinedCourse.title;
+                courseDescElement.textContent = joinedCourse.desc;
+
+                // 2. Load Resources
+                const resources = courseResources[courseId] || courseResources.default;
+                
+                resourcesList.innerHTML = ''; 
+
+                resources.forEach(resource => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${resource.url}" target="_blank">${resource.name}</a>`;
+                    resourcesList.appendChild(li);
+                });
+
+            } else {
+                courseTitleElement.textContent = 'Error: Course Not Found';
+                courseDescElement.textContent = 'The course ID in the URL is invalid.';
+                resourcesList.innerHTML = '<li style="text-align:center;">Please check the address or return to the catalog.</li>';
+            }
+        } else {
+            courseTitleElement.textContent = "Error: No Course ID";
+            courseDescElement.textContent = "The page was accessed without a course identifier.";
+            resourcesList.innerHTML = '<li style="text-align:center;">Please return to the catalog and join a course.</li>';
+        }
+    </script>
+</body>
+</html>\

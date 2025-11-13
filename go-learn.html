@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Go Learn — EduWeb</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  color:#fff;
+  margin:0; padding:0;
+}
+.container { margin:40px auto; width:min(1000px,94%); }
+h1 { text-align:center; margin-bottom:20px; }
+.grid {
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+}
+.card {
+  flex:1; min-width:280px; max-width:300px;
+  background: rgba(255,255,255,0.15);
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  text-align:center;
+  padding:20px;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+.card a {
+  text-decoration:none; color:#fff;
+}
+.card img {
+  width:100%; height:160px; border-radius:12px; object-fit:cover;
+  margin-bottom:10px;
+}
+.footer {
+  text-align:center; margin-top:30px; font-size:0.9em;
+  color:rgba(255,255,255,0.9);
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Go Learn 🌐</h1>
+  <p style="text-align:center;">Choose your learning path below and explore world-class educational resources.</p>
+
+  <div class="grid">
+    <div class="card">
+      <a href="https://artsandculture.google.com/" target="_blank">
+        <img src="images/arts.jpg" alt="Arts">
+        <h3>🎨 Arts</h3>
+        <p>Explore visual arts, museums, and cultural heritage.</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.khanacademy.org/humanities" target="_blank">
+        <img src="images/humanities.jpg" alt="Humanities">
+        <h3>📚 Humanities</h3>
+        <p>Learn history, literature, and philosophy with free lessons.</p>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.stem.org.uk/" target="_blank">
+        <img src="images/stem.jpg" alt="STEM">
+        <h3>🔬 STEM Subjects</h3>
+        <p>Dive into science, technology, engineering, and math.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">© 2025 EduWeb — Keep Learning & Growing 🌱</div>
+</div>
+</body>
+</html>

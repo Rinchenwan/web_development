@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Welcome — EduWeb</title>
+  <style>
+    :root {
+      --purple-dark: #5e2a84;
+      --pink-accent: #e056fd;
+      --gradient-bg: linear-gradient(135deg, #5e2a84, #a4508b, #e056fd);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--gradient-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      height: 100vh;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px 50px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(6px);
+      max-width: 480px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: white;
+      color: var(--purple-dark);
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--pink-accent);
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="welcomeText">🎉 Welcome!</h1>
+    <p>You have successfully joined <strong>EduWeb</strong>.</p>
+    <button class="btn" onclick="location.href='index.html'">Go to Home</button>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("eduwebUser"));
+    if (user && user.firstName) {
+      document.getElementById("welcomeText").textContent =
+        `🎉 Welcome, ${user.firstName}!`;
+    }
+  </script>
+</body>
+</html>

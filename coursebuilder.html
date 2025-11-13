@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduWeb — Course Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="features">
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">EW</div>
+        <div>
+          <div class="site-name">EDUWEB</div>
+          <small class="small-muted">Course Builder</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="resources.html">Resources</a>
+        <a href="join.html">Join Courses</a>
+        <a href="aboutus.html">About us</a>
+      </nav>
+    </header>
+
+    <main style="margin-top:24px">
+      <div class="hero-card">
+        <h2>Create Your Own Course</h2>
+        <p class="small-muted">Add modules, lessons, and resources below.</p>
+      </div>
+
+      <div class="form" style="margin-top:20px">
+        <label>Course Title</label>
+        <input type="text" class="input" id="courseTitle" placeholder="e.g. Introduction to HTML">
+        <label>Lesson Topic</label>
+        <input type="text" class="input" id="lessonTopic" placeholder="e.g. Tags and Attributes">
+        <button class="btn" style="margin-top:10px" onclick="addLesson()">Add Lesson</button>
+        <ul id="lessonList" style="margin-top:12px;"></ul>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>© 2025 EduWeb</small>
+      <div><a href="features.html" class="small-muted">Back to Features</a></div>
+    </footer>
+  </div>
+
+  <script>
+    function addLesson(){
+      const topic = document.getElementById('lessonTopic').value;
+      const list = document.getElementById('lessonList');
+      if(topic.trim() === '') return alert('Please enter a lesson topic.');
+      const li = document.createElement('li');
+      li.textContent = topic;
+      li.classList.add('small-muted');
+      list.appendChild(li);
+      document.getElementById('lessonTopic').value = '';
+    }
+  </script>
+</body>
+</html>
